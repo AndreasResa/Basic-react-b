@@ -1,19 +1,14 @@
-import Gen1 from "./Generation/Gen1";
-import Gen2 from "./Generation/Gen2";
-import Gen3 from "./Generation/Gen3";
-import Gen4 from "./Generation/Gen4";
+import Generations from "./Generation";
 import Logo from "./Logo";
 
-const Header = () => {
-  const header = "Header";
+const Header = ({ text }) => {
   return (
     <>
-      <h1>{header}</h1>
-      <Gen1 />
-      <Gen2 />
-      <Gen3 />
-      <Gen4 />
-      <Logo />
+      <h1>{text}</h1>
+      <p>
+        <Generations />
+        <Logo text="Logo dalam header" />
+      </p>
     </>
   );
 };
