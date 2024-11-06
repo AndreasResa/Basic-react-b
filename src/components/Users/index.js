@@ -1,8 +1,24 @@
+import axios from "axios";
+import React from 'react';
+import { useEffect, useState } from "react";
+
 
 const Users = () => {
-  return (
-    <div>Users</div>
-  )
-}
+    const [users, setUsers] = useState([])
 
-export default Users
+    useEffect(() => {
+        axios
+        .get('https://jsonplaceholder.typicode.com/users')
+        .then((res) => setUsers(res.data));
+    }, [])
+
+
+    return(
+        <div>
+            {users.map((item) => (
+                <h3 key={item.id}>{item.name}</h3>
+            ))}
+        </div>
+    )   
+}
+export default Users;
